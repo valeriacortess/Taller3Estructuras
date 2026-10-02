@@ -21,10 +21,11 @@
 #include "ArbolAVL.h"
 
 // TODO #06: Incluir cabecera de la STL correspondiente al árbol rojinegro
-// #include "arbolRN.h"
+#include "ArbolRN.h"
+
 
 // TODO #11: Incluir cabecera de la STL correspondiente al montículo
-// #include "monticulo.h"
+//include "monticulo.h"
 
 typedef std::list<std::string> TList;
 
@@ -32,7 +33,8 @@ typedef std::list<std::string> TList;
 typedef ArbolAVL< std::string > TAVL;
 
 // TODO #07: Definir árbol rojinegro de tipo std::string
-// typedef arbolRN< std::string > TRN;
+typedef arbolRN< std::string > TRN;
+
 
 // TODO #12: Definir Montículo de tipo std::string
 // typedef monticulo< std::string > THeap;
@@ -100,7 +102,7 @@ int main(int argc, char *argv[])
   TAVL miArbolAVL;
 
   // TODO #08: Definir variable tipo árbol rojinegro.
-  // TRN miArbolRN;
+  TRN miArbolRN;
 
   // TODO #13: Definir variable tipo Montículo.
   // THeap miMonticulo;
@@ -114,14 +116,14 @@ int main(int argc, char *argv[])
 
   ReadStats statsRN;
   std::chrono::steady_clock::time_point t0RN = std::chrono::steady_clock::now();
-  // bool lecturaRN = LeerArbol(miArbolRN, archivo, medirCadaOperacion, statsRN);
+  bool lecturaRN = LeerArbol(miArbolRN, archivo, medirCadaOperacion, statsRN);
   std::chrono::steady_clock::time_point t1RN = std::chrono::steady_clock::now();
   double tiempoLecturaRN = std::chrono::duration<double>(t1RN - t0RN).count();
   statsRN.secs_total = tiempoLecturaRN;
 
   ReadStats statsHeap;
   std::chrono::steady_clock::time_point t0Heap = std::chrono::steady_clock::now();
-  // bool lecturaHeap = LeerArbol(miMonticulo, archivo, medirCadaOperacion, statsHeap);
+  //bool lecturaHeap = LeerArbol(miMonticulo, archivo, medirCadaOperacion, statsHeap);
   std::chrono::steady_clock::time_point t1Heap = std::chrono::steady_clock::now();
   double tiempoLecturaHeap = std::chrono::duration<double>(t1Heap - t0Heap).count();
   statsHeap.secs_total = tiempoLecturaHeap;
@@ -137,7 +139,7 @@ int main(int argc, char *argv[])
    miArbolAVL.inOrdenEnLista(inordenAVL);
 
   // TODO #10: Llamar la función que genera el recorrido en inorden del árbol rojinegro y lo guarda en una lista dada como parámetro.
-  // miArbolRN.inordenEnLista(inordenRN);
+  miArbolRN.inOrdenEnLista(inordenRN);
 
   // TODO #15: Llamar la función que genera el recorrido en inorden del montículo y lo guarda en una lista dada como parámetro.
   // miMonticulo.inordenEnLista(inordenHeap);
