@@ -18,7 +18,7 @@
 #include <iomanip>   // std::setw, std::fixed, std::setprecision
 
 // TODO #01: Incluir cabecera de la implementación propia del árbol AVL
-// #include "arbolAVL.h"
+#include "ArbolAVL.h"
 
 // TODO #06: Incluir cabecera de la STL correspondiente al árbol rojinegro
 // #include "arbolRN.h"
@@ -29,7 +29,7 @@
 typedef std::list<std::string> TList;
 
 // TODO #02: Definir árbol AVL de tipo std::string
-// typedef arbolAVL< std::string > TAVL;
+typedef ArbolAVL< std::string > TAVL;
 
 // TODO #07: Definir árbol rojinegro de tipo std::string
 // typedef arbolRN< std::string > TRN;
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
   const bool medirCadaOperacion = (modo == 'Y');
 
   // TODO #03: Definir variable tipo árbol AVL.
-  // TAVL miArbolAVL;
+  TAVL miArbolAVL;
 
   // TODO #08: Definir variable tipo árbol rojinegro.
   // TRN miArbolRN;
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
 
   ReadStats statsAVL;
   std::chrono::steady_clock::time_point t0AVL = std::chrono::steady_clock::now();
-  // bool lecturaAVL = LeerArbol(miArbolAVL, archivo, medirCadaOperacion, statsAVL);
+  bool lecturaAVL = LeerArbol(miArbolAVL, archivo, medirCadaOperacion, statsAVL);
   std::chrono::steady_clock::time_point t1AVL = std::chrono::steady_clock::now();
   double tiempoLecturaAVL = std::chrono::duration<double>(t1AVL - t0AVL).count();
   statsAVL.secs_total = tiempoLecturaAVL;
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
   TList inordenAVL, inordenRN, inordenHeap;
 
   // TODO #05: Llamar la función que genera el recorrido en inorden del árbol AVL y lo guarda en una lista dada como parámetro.
-  // miArbolAVL.inordenEnLista(inordenAVL);
+   miArbolAVL.inOrdenEnLista(inordenAVL);
 
   // TODO #10: Llamar la función que genera el recorrido en inorden del árbol rojinegro y lo guarda en una lista dada como parámetro.
   // miArbolRN.inordenEnLista(inordenRN);
