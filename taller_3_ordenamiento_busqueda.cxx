@@ -25,7 +25,7 @@
 
 
 // TODO #11: Incluir cabecera de la STL correspondiente al montículo
-//include "monticulo.h"
+#include "monticulo.h"
 
 typedef std::list<std::string> TList;
 
@@ -37,7 +37,7 @@ typedef arbolRN< std::string > TRN;
 
 
 // TODO #12: Definir Montículo de tipo std::string
-// typedef monticulo< std::string > THeap;
+typedef monticulo< std::string > THeap;
 
 struct ReadStats {
   std::size_t ops_total   = 0;
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
   TRN miArbolRN;
 
   // TODO #13: Definir variable tipo Montículo.
-  // THeap miMonticulo;
+  THeap miMonticulo;
 
   ReadStats statsAVL;
   std::chrono::steady_clock::time_point t0AVL = std::chrono::steady_clock::now();
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
   miArbolRN.inOrdenEnLista(inordenRN);
 
   // TODO #15: Llamar la función que genera el recorrido en inorden del montículo y lo guarda en una lista dada como parámetro.
-  // miMonticulo.inordenEnLista(inordenHeap);
+  miMonticulo.inOrdenEnLista(inordenHeap);
 
 
   std::size_t sizeAVL  = inordenAVL.size();
