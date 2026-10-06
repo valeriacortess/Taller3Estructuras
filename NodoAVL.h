@@ -9,6 +9,7 @@ class NodoAVL{
         T dato;
     NodoAVL<T>* hijoIzq;
     NodoAVL<T>* hijoDer;
+    int alt;
     public:
         NodoAVL();
         NodoAVL(T val);
@@ -30,6 +31,8 @@ class NodoAVL{
         int tamano();
         void preOrden();
         void posOrden();
+        int altura();
+        int actualizarAltura();
 };
 #include "NodoAVL.hxx"
 
