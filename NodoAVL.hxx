@@ -4,6 +4,7 @@ template <class T>
 NodoAVL<T>::NodoAVL(){
   this->hijoIzq = NULL;
   this->hijoDer = NULL;
+  this->alt = 0;
 }
 
 template <class T>
@@ -11,6 +12,7 @@ NodoAVL<T>::NodoAVL(T val){
   this->hijoIzq = NULL;
   this->hijoDer = NULL;
   this->dato = val;
+  this->alt = 0;
 }
 
 template <class T>
@@ -62,24 +64,24 @@ bool NodoAVL<T>::esHoja(){
 
 template <class T>
 int NodoAVL<T>::altura (){
-  int valt= -1;
-
-  if (this->esHoja()){
-    valt =0;
-  }else {
-    int valt_izq = -1;
-    int valt_der = -1;
-    if (this->hijoIzq != NULL) 
-      valt_izq = (this->hijoIzq)->altura();
-    if (this->hijoDer != NULL) 
-      valt_der = (this->hijoDer)->altura();
-    if (valt_izq > valt_der)
-      valt = valt_izq + 1;
-    else
-      valt = valt_der + 1;
-  }
-  return valt;
+  return this->alt;
 }
+
+template <class T>
+void NodoAVL<T>::actualizarAltura(){
+  int alturaIzq = -1;
+  int alturaDer = -1;
+  if(this->hijoIzq != NULL)
+    alturaIzq = (this->hijoIzq)->alt;
+  if (this->hijoDer != NULL)
+    alturaDer = (this->hijoDer)->alt;
+  if (alturaIzq > alturaDer)
+    this->alt = alturaIzq + 1;
+  else
+    this->alt = alturaDer + 1;
+}
+
+
 template <class T>
 int NodoAVL<T> ::factorBalance(){
  int alturaIzq =-1;
@@ -98,6 +100,8 @@ template <class T>
    NodoAVL<T>* n_padre = this->hijoIzq;
    this->hijoIzq = n_padre->hijoDer;
    n_padre->hijoDer = this;
+   this->actualizarAltura();      
+   n_padre->actualizarAltura(); 
    return n_padre;
   
 }
@@ -107,6 +111,8 @@ template <class T>
    NodoAVL<T>* n_padre = this->hijoDer;
    this->hijoDer = n_padre->hijoIzq;
    n_padre->hijoIzq = this;
+   this->actualizarAltura();      
+   n_padre->actualizarAltura();
    return n_padre;
   
 }
