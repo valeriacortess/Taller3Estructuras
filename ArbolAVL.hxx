@@ -336,6 +336,7 @@ NodoAVL<T>* ArbolAVL<T> :: balancear(NodoAVL<T>* nodo){
     return NULL;
   }
   
+  nodo->actualizarAltura();
   int balance = nodo->factorBalance();
 
   //izquierdo más alto que derecho
