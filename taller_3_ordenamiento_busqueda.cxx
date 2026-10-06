@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
 
   ReadStats statsHeap;
   std::chrono::steady_clock::time_point t0Heap = std::chrono::steady_clock::now();
-  //bool lecturaHeap = LeerArbol(miMonticulo, archivo, medirCadaOperacion, statsHeap);
+  bool lecturaHeap = LeerArbol(miMonticulo, archivo, medirCadaOperacion, statsHeap);
   std::chrono::steady_clock::time_point t1Heap = std::chrono::steady_clock::now();
   double tiempoLecturaHeap = std::chrono::duration<double>(t1Heap - t0Heap).count();
   statsHeap.secs_total = tiempoLecturaHeap;
