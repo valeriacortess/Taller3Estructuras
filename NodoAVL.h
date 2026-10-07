@@ -31,8 +31,7 @@ class NodoAVL{
         int tamano();
         void preOrden();
         void posOrden();
-        int altura();
-        int actualizarAltura();
+        void actualizarAltura();
 };
 #include "NodoAVL.hxx"
 
