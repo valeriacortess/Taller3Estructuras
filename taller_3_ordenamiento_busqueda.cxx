@@ -57,7 +57,7 @@ void ImprimirResumen(const std::string& titulo, const ReadStats& s, bool detalle
   std::cout << "\n============================================================\n";
   std::cout << " " << titulo << "\n";
   std::cout << "------------------------------------------------------------\n";
-  std::cout << std::fixed << std::setprecision(3);
+  std::cout << std::fixed << std::setprecision(6);
 
   std::cout << " Operaciones procesadas : " << s.ops_total << "\n";
   std::cout << " Tiempo TOTAL           : " << to_ms(s.secs_total) << " ms\n";
