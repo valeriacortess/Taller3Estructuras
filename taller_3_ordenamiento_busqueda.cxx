@@ -128,6 +128,10 @@ int main(int argc, char *argv[])
   double tiempoLecturaHeap = std::chrono::duration<double>(t1Heap - t0Heap).count();
   statsHeap.secs_total = tiempoLecturaHeap;
 
+  ImprimirResumen("Resultados AVL", statsAVL, medirCadaOperacion);
+  ImprimirResumen("Resultados Arbol Rojo-Negro", statsRN, medirCadaOperacion);
+  ImprimirResumen("Resultados Heap", statsHeap, medirCadaOperacion);
+
   /*
     =============================================
     Comparar los árboles y mostrar el resultado
