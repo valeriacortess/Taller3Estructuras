@@ -190,8 +190,25 @@ int main(int argc, char *argv[])
    }
 
   // TODO #18: Informar si los árboles coinciden en la totalidad de los elementos teniendo en cuenta su posición
-   if (todosIguales && sizeAVL == sizeRN && sizeRN == sizeHeap) {
+  if (todosIguales && sizeAVL == sizeRN && sizeRN == sizeHeap) {
      std::cout << " ==> Coincidencia total: los tres recorridos inorden son idénticos.\n";
+
+     std::cout << "\nAVL: "; // Imprimir el recorrido inorden del árbol AVL
+      for (TList::iterator it = inordenAVL.begin(); it != inordenAVL.end(); ++it) {
+        std::cout << *it << " ";
+      }
+
+    std::cout << "\nRN : "; // Imprimir el recorrido inorden del árbol Rojo-Negro
+      for (TList::iterator it = inordenRN.begin(); it != inordenRN.end(); ++it) {
+        std::cout << *it << " ";
+      }
+
+    std::cout << "\nHeap: "; // Imprimir la secuencia ordenada del montículo
+      for (TList::iterator it = inordenHeap.begin(); it != inordenHeap.end(); ++it) {
+        std::cout << *it << " ";
+      }
+    std::cout << "\n";
+
    } else if (todosIguales) {
      std::cout << " ==> Coincidencia parcial: igualdad en posiciones comparadas, pero tamaños distintos.\n";
    } else {
