@@ -20,7 +20,7 @@ public:
             return false;
         }
         this->datos.push_back(val);
-        std::push_heap(this->datos.begin(), this->datos.end(), std::greater<T>());
+        std::push_heap(this->datos.begin(), this->datos.end());
         return true;
     }
 
@@ -34,7 +34,7 @@ public:
         std::swap(*it, this->datos.back());
         this->datos.pop_back();
         if (!this->datos.empty()) {
-            std::make_heap(this->datos.begin(), this->datos.end(), std::greater<T>());
+            std::make_heap(this->datos.begin(), this->datos.end());
         }
         return true;
     }
